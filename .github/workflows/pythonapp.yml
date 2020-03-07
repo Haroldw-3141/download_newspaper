@@ -24,11 +24,11 @@ jobs:
         python-version: 3.8
     - name: Producing Newspaper...
       run: |
-        mkdir -p /home/haroldw-3141/test/Newspaper/
+        mkdir -p ~/Newspaper/
         cd download_newspaper
         python ./download_globaltimes.py
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: Produced PDF
-        path: /home/haroldw-3141/test/Newspaper/
+        path: ~/Newspaper/
