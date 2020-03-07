@@ -24,7 +24,7 @@ jobs:
         python-version: 3.8
     - name: Producing Newspaper...
       run: |
-        mkdir -p ~/Newspaper/
+        mkdir ~/Newspaper/
         cd download_newspaper
         python ./download_globaltimes.py
     - name: Upload artifact
