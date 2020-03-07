@@ -61,7 +61,7 @@ def control():
 
 
 def main():
-    response = requests.get(host_link + "/hqsb.html", headers=my_headers)
+    response = requests.get(host_link + "/ckxx.html", headers=my_headers)
 
     # 这神奇的编码格式，折腾了半天，开始还以为是gb2312呢……
     # print(response.content.decode('GB18030'))
