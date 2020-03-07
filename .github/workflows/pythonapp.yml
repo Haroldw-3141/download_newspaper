@@ -25,7 +25,6 @@ jobs:
     - name: Producing Newspaper...
       run: |
         mkdir ~/Newspaper/
-        cd download_newspaper
         python ./download_globaltimes.py
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
