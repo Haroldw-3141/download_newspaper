@@ -69,7 +69,7 @@ def main():
     newest_paper_date = re.search(r"\d{4}-\d{1,2}-\d{1,2}", response.text)
     print("最新的报纸日期是: " + newest_paper_date.group())
     print("今天的日期是: " + str(datetime.date.today()))
-    print('是否继续 \033[4m%s\033[0mes Or \033[4m%s\033[0mo' % ('Y', 'N'))
+#    print('是否继续 \033[4m%s\033[0mes Or \033[4m%s\033[0mo' % ('Y', 'N'))
 #    if not control():
 #        return
 
@@ -89,7 +89,8 @@ def main():
     big_link = host_link + link
     download_and_save(big_link, 1)
 
-    for i in range(2, 17):
+    pages = 8 if datetime.datetime.today().weekday() >= 5 else 16
+    for i in range(2, pages + 1):
         time.sleep(random.random())
         suffix = "_" + str(i) + ".html"
         tmp_link = re.sub("\.html", suffix, big_link)
