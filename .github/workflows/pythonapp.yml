@@ -27,10 +27,10 @@ jobs:
         pip install requests
     - name: Producing Newspaper...
       run: |
-        mkdir -p ~/Newspaper/tmp
+        mkdir ./Newspaper
         python ./download_globaltimes.py
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: Produced PDF
-        path: ~/Newspaper/
+        path: ./Newspaper/
