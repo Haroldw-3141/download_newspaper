@@ -8,7 +8,7 @@ import shutil
 import time
 
 host_link = "https://www.hqck.net"
-base_location = "/home/vitoyang/test/global_times/"
+base_location = "/home/haroldw-3141/test/Newspaper/"
 my_headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36 Edg/80.0.361.50"
 }
@@ -37,7 +37,7 @@ def download_and_save(link, suffix_num):
 def search_download_link(link):
     tmp_response = requests.get(link, headers=my_headers)
     download_link = re.search(
-        "环球时报电子版在线阅读 .*\" src=\"http://.*.jpg\"", tmp_response.content.decode("GB18030"))
+        "参考消息电子版在线阅读 .*\" src=\"http://.*.jpg\"", tmp_response.content.decode("GB18030"))
     if download_link is None:
         print("查找图片下载地址失败")
         return None
@@ -70,22 +70,22 @@ def main():
     print("最新的报纸日期是: " + newest_paper_date.group())
     print("今天的日期是: " + str(datetime.date.today()))
     print('是否继续 \033[4m%s\033[0mes Or \033[4m%s\033[0mo' % ('Y', 'N'))
-    if not control():
-        return
+#    if not control():
+#        return
 
     if os.path.exists(base_location + str(datetime.date.today()) + ".pdf"):
         print("今日报纸已经下载")
-        print('是否重新下载 \033[4m%s\033[0mes Or \033[4m%s\033[0mo' % ('Y', 'N'))
-        if not control():
-            return
-        else:
-            os.remove(base_location + str(datetime.date.today()) + ".pdf")
+#        print('是否重新下载 \033[4m%s\033[0mes Or \033[4m%s\033[0mo' % ('Y', 'N'))
+#        if not control():
+#            return
+#        else:
+        os.remove(base_location + str(datetime.date.today()) + ".pdf")
 
     if not os.path.exists(base_location + "tmp"):
         os.mkdir(base_location + "tmp")
 
     link = re.search(
-        "/arc/jwbt/hqsb/\d{4}/\d{4}/\d*.html", response.text).group()
+        "/arc/jwbt/ckxx/\d{4}/\d{4}/\d*.html", response.text).group()
     big_link = host_link + link
     download_and_save(big_link, 1)
 
