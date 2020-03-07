@@ -28,7 +28,9 @@ jobs:
     - name: Producing Newspaper...
       run: |
         mkdir ./Newspaper
+        sudo mv /etc/ImageMagick-6/policy.xml /etc/ImageMagick-6/policy.xml.off
         python ./download_globaltimes.py
+        sudo mv /etc/ImageMagick-6/policy.xml.off /etc/ImageMagick-6/policy.xml
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
