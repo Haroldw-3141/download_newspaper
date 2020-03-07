@@ -27,7 +27,7 @@ jobs:
         pip install requests
     - name: Producing Newspaper...
       run: |
-        mkdir ~/Newspaper/
+        mkdir -p ~/Newspaper/tmp
         python ./download_globaltimes.py
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
