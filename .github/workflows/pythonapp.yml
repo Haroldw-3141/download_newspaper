@@ -6,6 +6,8 @@ name: Download Newspaper Test
 on:
   push:
     branches: [ master ]
+  schedule:
+    - cron: "0 12 * * *"
 #  pull_request:
 #    branches: [ master ]
 
@@ -29,6 +31,7 @@ jobs:
       run: |
         mkdir ./Newspaper
         sudo mv /etc/ImageMagick-6/policy.xml /etc/ImageMagick-6/policy.xml.off
+        date '+%c'
         python ./download_globaltimes.py
         sudo mv /etc/ImageMagick-6/policy.xml.off /etc/ImageMagick-6/policy.xml
     - name: Upload artifact
