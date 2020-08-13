@@ -40,7 +40,7 @@ jobs:
       env:
         RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
       with:
-        args: copy ./Newspaper/ 1drv:
+        args: copy /home/runner/work/download_newspaper/download_newspaper/Newspaper/ 1drv:NewsPaper
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
