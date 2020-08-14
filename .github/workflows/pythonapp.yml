@@ -35,12 +35,12 @@ jobs:
         date '+%c'
         python ./download_globaltimes.py
         sudo mv /etc/ImageMagick-6/policy.xml.off /etc/ImageMagick-6/policy.xml
-    - name: Rcloing to cloud...
-      uses: wei/rclone@v1.1.1
-      env:
-        RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
-      with:
-        args: copy /home/runner/work/download_newspaper/download_newspaper/Newspaper/ 1drv:NewsPaper
+#    - name: Rcloing to cloud...
+#      uses: wei/rclone@v1.1.1
+#      env:
+#        RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+#      with:
+#        args: copy /home/runner/work/download_newspaper/download_newspaper/Newspaper/ 1drv:NewsPaper
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
